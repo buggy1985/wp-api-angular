@@ -1,17 +1,6 @@
 import { Component, VERSION } from '@angular/core';
-import {
-  WpApiPosts,
-  WpApiPages,
-  WpApiComments,
-  WpApiTypes,
-  WpApiMedia,
-  WpApiUsers,
-  WpApiTaxonomies,
-  WpApiStatuses,
-  WpApiTerms,
-  WpApiCustom
-} from '../dist/wp-api-angular';
-let config = require('../config.json');
+import { WpApiPosts, WpApiPages, WpApiComments, WpApiTypes, WpApiMedia, WpApiUsers, WpApiTaxonomies, WpApiStatuses, WpApiTerms, WpApiCustom } from '../dist/wp-api-angular';
+import { config } from "../config";
 
 @Component({
   selector: 'app',
@@ -83,7 +72,7 @@ export class App {
     Object.keys(serviceApi).map((method) => {
       let parameters = serviceApi[method];
       service[method].apply(service, parameters).toPromise()
-        .then(response => response.json())
+        .then(response => response)
         .then(body => {
           // console.groupCollapsed(serviceName, method, JSON.stringify(parameters));
           // console.log(body);
@@ -91,7 +80,7 @@ export class App {
           this.requests.push({ serviceName: serviceName.slice(5), method, success: true })
         })
         .catch(error => {
-          console.error(serviceName, method, error.json());
+          console.error(serviceName, method, error);
           this.requests.push({ serviceName: serviceName.slice(5), method, success: false })
         });
     });

@@ -1,33 +1,31 @@
 import { Injectable, Inject } from '@angular/core';
-import { Http } from '@angular/http';
 
 // Need to import interfaces dependencies
 // Bug TypeScript https://github.com/Microsoft/TypeScript/issues/5938
-import { Observable } from 'rxjs/Observable';
-import { RequestOptionsArgs } from '@angular/http/src/interfaces';
-import { Response } from '@angular/http/src/static_response';
+import { Observable } from 'rxjs';
 
 import { WpApiParent } from './Parent';
 
 import { WpApiLoader } from './Loaders';
+import { HttpClient, HttpResponse } from "@angular/common/http";
 
 export interface IWpApiPages {
-  getList(options?: RequestOptionsArgs): Observable<Response>;
-  get(pageId: number, options?: RequestOptionsArgs): Observable<Response>;
-  create(body: any, options?: RequestOptionsArgs): Observable<Response>;
-  update(pageId: number, body: any, options?: RequestOptionsArgs): Observable<Response>;
-  delete(pageId: number, options?: RequestOptionsArgs): Observable<Response>;
-  getMetaList(pageId: number, options?: RequestOptionsArgs): Observable<Response>;
-  getMeta(pageId: number, metaId: number, options?: RequestOptionsArgs): Observable<Response>;
-  getRevisionList(pageId: number, options?: RequestOptionsArgs): Observable<Response>;
-  getRevision(pageId: number, revisionId: number, options?: RequestOptionsArgs): Observable<Response>;
+  getList(options?: Object): Observable<Object>;
+  get(pageId: number, options?: Object): Observable<Object>;
+  create(body: any, options?: Object): Observable<Object>;
+  update(pageId: number, body: any, options?: Object): Observable<Object>;
+  delete(pageId: number, options?: Object): Observable<Object>;
+  getMetaList(pageId: number, options?: Object): Observable<Object>;
+  getMeta(pageId: number, metaId: number, options?: Object): Observable<Object>;
+  getRevisionList(pageId: number, options?: Object): Observable<Object>;
+  getRevision(pageId: number, revisionId: number, options?: Object): Observable<Object>;
 }
 
 @Injectable()
 export class WpApiPages extends WpApiParent implements IWpApiPages {
   constructor(
     public wpApiLoader: WpApiLoader,
-    public http: Http
+    public http: HttpClient
   ) {
     super(wpApiLoader, http);
   }

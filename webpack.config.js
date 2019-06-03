@@ -14,7 +14,6 @@ module.exports = {
       'zone.js',
       '@angular/core',
       'rxjs',
-      'rxjs/add/operator/toPromise',
       path.join(demoPath, 'index.ts')
     ]
   },

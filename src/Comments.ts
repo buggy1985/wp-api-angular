@@ -2,27 +2,26 @@ import { Injectable, Inject } from '@angular/core';
 import { Http } from '@angular/http';
 // Need to import interfaces dependencies
 // Bug TypeScript https://github.com/Microsoft/TypeScript/issues/5938
-import { Observable } from 'rxjs/Observable';
-import { RequestOptionsArgs } from '@angular/http/src/interfaces';
-import { Response } from '@angular/http/src/static_response';
+import { Observable } from 'rxjs';
 
 import { WpApiParent } from './Parent';
 
 import { WpApiLoader } from './Loaders';
+import{HttpClient, HttpResponse} from "@angular/common/http";
 
 export interface IWpApiComments {
-  getList(options?: RequestOptionsArgs): Observable<Response>;
-  get(commentId: number, options?: RequestOptionsArgs): Observable<Response>;
-  create(body: any, options?: RequestOptionsArgs): Observable<Response>;
-  update(commentId: number, body: any, options?: RequestOptionsArgs): Observable<Response>;
-  delete(commentId: number, options?: RequestOptionsArgs): Observable<Response>;
+  getList(options?: Object): Observable<Object>;
+  get(commentId: number, options?: Object): Observable<Object>;
+  create(body: any, options?: Object): Observable<Object>;
+  update(commentId: number, body: any, options?: Object): Observable<Object>;
+  delete(commentId: number, options?: Object): Observable<Object>;
 }
 
 @Injectable()
 export class WpApiComments extends WpApiParent implements IWpApiComments {
   constructor(
     public wpApiLoader: WpApiLoader,
-    public http: Http
+    public http: HttpClient
   ) {
     super(wpApiLoader, http);
   }

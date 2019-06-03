@@ -4,7 +4,6 @@ import {
   ModuleWithProviders
 } from '@angular/core';
 import 'rxjs';
-import { Http, HttpModule } from '@angular/http';
 
 import { WpApiPosts } from './Posts';
 import { WpApiPages } from './Pages';
@@ -17,6 +16,7 @@ import { WpApiStatuses } from './Statuses';
 import { WpApiTerms } from './Terms';
 import { WpApiCustom } from './Custom';
 import { WpApiLoader, WpApiStaticLoader } from './Loaders';
+import {HttpClient, HttpClientModule} from "@angular/common/http";
 
 export { WpApiPosts } from './Posts';
 export { WpApiPages } from './Pages';
@@ -30,16 +30,16 @@ export { WpApiTerms } from './Terms';
 export { WpApiCustom } from './Custom';
 export { WpApiLoader, WpApiStaticLoader } from './Loaders';
 
-export function WpApiLoaderFactory(http: Http) {
+export function WpApiLoaderFactory(http: HttpClient) {
   return new WpApiStaticLoader(http);
 }
 
 @NgModule({
   imports: [
-    HttpModule
+    HttpClientModule
   ],
   exports: [
-    HttpModule
+    HttpClientModule
   ],
   providers: [
     WpApiPosts,
@@ -58,7 +58,7 @@ export class WpApiModule {
   static forRoot(providedLoader: any = {
     provide: WpApiLoader,
     useFactory: WpApiLoaderFactory,
-    deps: [Http]
+    deps: [HttpClient]
   }): ModuleWithProviders {
     return {
       ngModule: WpApiModule,

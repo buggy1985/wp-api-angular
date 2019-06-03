@@ -1,28 +1,26 @@
 import { Injectable, Inject } from '@angular/core';
-import { Http } from '@angular/http';
 
 // Need to import interfaces dependencies
 // Bug TypeScript https://github.com/Microsoft/TypeScript/issues/5938
-import { Observable } from 'rxjs/Observable';
-import { RequestOptionsArgs } from '@angular/http/src/interfaces';
-import { Response } from '@angular/http/src/static_response';
+import { Observable } from 'rxjs';
 
 import { WpApiParent } from './Parent';
 
 import { WpApiLoader } from './Loaders';
+import{HttpClient, HttpResponse} from "@angular/common/http";
 
 export interface IWpApiCustom {
-  getList(options?: RequestOptionsArgs): Observable<Response>;
-  get(customId: number, options?: RequestOptionsArgs): Observable<Response>;
-  create(body: any, options?: RequestOptionsArgs): Observable<Response>;
-  update(customId: number, body: any, options?: RequestOptionsArgs): Observable<Response>;
-  delete(customId: number, options?: RequestOptionsArgs): Observable<Response>;
+  getList(options?: Object): Observable<Object>;
+  get(customId: number, options?: Object): Observable<Object>;
+  create(body: any, options?: Object): Observable<Object>;
+  update(customId: number, body: any, options?: Object): Observable<Object>;
+  delete(customId: number, options?: Object): Observable<Object>;
 }
 
 export class Custom extends WpApiParent implements IWpApiCustom {
   constructor(
     public wpApiLoader: WpApiLoader,
-    public http: Http,
+    public http: HttpClient,
     public entityName: string
   ) {
     super(wpApiLoader, http);
@@ -49,7 +47,7 @@ export class Custom extends WpApiParent implements IWpApiCustom {
 export class WpApiCustom extends WpApiParent {
   constructor(
     public wpApiLoader: WpApiLoader,
-    public http: Http
+    public http: HttpClient
   ) {
     super(wpApiLoader, http);
   }

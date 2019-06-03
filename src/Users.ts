@@ -1,30 +1,28 @@
 import { Injectable, Inject } from '@angular/core';
-import { Http } from '@angular/http';
 
 // Need to import interfaces dependencies
 // Bug TypeScript https://github.com/Microsoft/TypeScript/issues/5938
-import { Observable } from 'rxjs/Observable';
-import { RequestOptionsArgs } from '@angular/http/src/interfaces';
-import { Response } from '@angular/http/src/static_response';
+import { Observable } from 'rxjs';
 
 import { WpApiParent } from './Parent';
 
 import { WpApiLoader } from './Loaders';
+import {HttpClient, HttpResponse} from "@angular/common/http";
 
 export interface IWpApiUsers {
-  getList(options?: RequestOptionsArgs): Observable<Response>;
-  me(options?: RequestOptionsArgs): Observable<Response>;
-  get(userId: number, options?: RequestOptionsArgs): Observable<Response>;
-  create(body: any, options?: RequestOptionsArgs): Observable<Response>;
-  update(userId: number, body: any, options?: RequestOptionsArgs): Observable<Response>;
-  delete(userId: number, options?: RequestOptionsArgs): Observable<Response>;
+  getList(options?: Object): Observable<Object>;
+  me(options?: Object): Observable<Object>;
+  get(userId: number, options?: Object): Observable<Object>;
+  create(body: any, options?: Object): Observable<Object>;
+  update(userId: number, body: any, options?: Object): Observable<Object>;
+  delete(userId: number, options?: Object): Observable<Object>;
 }
 
 @Injectable()
 export class WpApiUsers extends WpApiParent implements IWpApiUsers {
   constructor(
     public wpApiLoader: WpApiLoader,
-    public http: Http
+    public http: HttpClient
   ) {
     super(wpApiLoader, http);
   }

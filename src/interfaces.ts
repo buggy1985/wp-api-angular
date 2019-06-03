@@ -1,97 +1,94 @@
-import { Observable } from 'rxjs/Observable';
-import { RequestOptionsArgs } from '@angular/http/src/interfaces';
-import { Response } from '@angular/http/src/static_response';
-
+import { Observable } from 'rxjs';
 
 export interface IParent {
-  httpGet(url: string, options?: RequestOptionsArgs): Observable<Response>;
-  httpHead(url: string, options?: RequestOptionsArgs): Observable<Response>;
-  httpDelete(url: string, options?: RequestOptionsArgs): Observable<Response>;
-  httpPost(url: string, body: any, options?: RequestOptionsArgs): Observable<Response>;
-  httpPut(url: string, body: any, options?: RequestOptionsArgs): Observable<Response>;
-  httpPatch(url: string, body: any, options?: RequestOptionsArgs): Observable<Response>;
+  httpGet(url: string, options?: Object): Observable<Object>;
+  httpHead(url: string, options?: Object): Observable<Object>;
+  httpDelete(url: string, options?: Object): Observable<Object>;
+  httpPost(url: string, body: any, options?: Object): Observable<Object>;
+  httpPut(url: string, body: any, options?: Object): Observable<Object>;
+  httpPatch(url: string, body: any, options?: Object): Observable<Object>;
 }
 
 export interface IWpApiPosts {
-  getList(options?: RequestOptionsArgs): Observable<Response>;
-  get(postId: number, options?: RequestOptionsArgs): Observable<Response>;
-  create(body: any, options?: RequestOptionsArgs): Observable<Response>;
-  update(postId: number, body: any, options?: RequestOptionsArgs): Observable<Response>;
-  delete(postId: number, options?: RequestOptionsArgs): Observable<Response>;
-  getMetaList(postId: number, options?: RequestOptionsArgs): Observable<Response>;
-  getMeta(postId: number, metaId: number, options?: RequestOptionsArgs): Observable<Response>;
-  getRevisionList(postId: number, options?: RequestOptionsArgs): Observable<Response>;
-  getRevision(postId: number, revisionId: number, options?: RequestOptionsArgs): Observable<Response>;
-  getCategoryList(postId: number, options?: RequestOptionsArgs): Observable<Response>;
-  getCategory(postId: number, categoryId, options?: RequestOptionsArgs): Observable<Response>;
-  getTagList(postId: number, options?: RequestOptionsArgs): Observable<Response>;
-  getTag(postId: number, tagId, options?: RequestOptionsArgs): Observable<Response>;
+  getList(options?: Object): Observable<Object>;
+  get(postId: number, options?: Object): Observable<Object>;
+  create(body: any, options?: Object): Observable<Object>;
+  update(postId: number, body: any, options?: Object): Observable<Object>;
+  delete(postId: number, options?: Object): Observable<Object>;
+  getMetaList(postId: number, options?: Object): Observable<Object>;
+  getMeta(postId: number, metaId: number, options?: Object): Observable<Object>;
+  getRevisionList(postId: number, options?: Object): Observable<Object>;
+  getRevision(postId: number, revisionId: number, options?: Object): Observable<Object>;
+  getCategoryList(postId: number, options?: Object): Observable<Object>;
+  getCategory(postId: number, categoryId, options?: Object): Observable<Object>;
+  getTagList(postId: number, options?: Object): Observable<Object>;
+  getTag(postId: number, tagId, options?: Object): Observable<Object>;
 }
 
 export interface IWpApiPages {
-  getList(options?: RequestOptionsArgs): Observable<Response>;
-  get(pageId: number, options?: RequestOptionsArgs): Observable<Response>;
-  create(body: any, options?: RequestOptionsArgs): Observable<Response>;
-  update(pageId: number, body: any, options?: RequestOptionsArgs): Observable<Response>;
-  delete(pageId: number, options?: RequestOptionsArgs): Observable<Response>;
-  getMetaList(pageId: number, options?: RequestOptionsArgs): Observable<Response>;
-  getMeta(pageId: number, metaId: number, options?: RequestOptionsArgs): Observable<Response>;
-  getRevisionList(pageId: number, options?: RequestOptionsArgs): Observable<Response>;
-  getRevision(pageId: number, revisionId: number, options?: RequestOptionsArgs): Observable<Response>;
+  getList(options?: Object): Observable<Object>;
+  get(pageId: number, options?: Object): Observable<Object>;
+  create(body: any, options?: Object): Observable<Object>;
+  update(pageId: number, body: any, options?: Object): Observable<Object>;
+  delete(pageId: number, options?: Object): Observable<Object>;
+  getMetaList(pageId: number, options?: Object): Observable<Object>;
+  getMeta(pageId: number, metaId: number, options?: Object): Observable<Object>;
+  getRevisionList(pageId: number, options?: Object): Observable<Object>;
+  getRevision(pageId: number, revisionId: number, options?: Object): Observable<Object>;
 }
 
 export interface IWpApiComments {
-  getList(options?: RequestOptionsArgs): Observable<Response>;
-  get(commentId: number, options?: RequestOptionsArgs): Observable<Response>;
-  create(body: any, options?: RequestOptionsArgs): Observable<Response>;
-  update(commentId: number, body: any, options?: RequestOptionsArgs): Observable<Response>;
-  delete(commentId: number, options?: RequestOptionsArgs): Observable<Response>;
+  getList(options?: Object): Observable<Object>;
+  get(commentId: number, options?: Object): Observable<Object>;
+  create(body: any, options?: Object): Observable<Object>;
+  update(commentId: number, body: any, options?: Object): Observable<Object>;
+  delete(commentId: number, options?: Object): Observable<Object>;
 }
 
 export interface IWpApiTypes {
-  getList(options?: RequestOptionsArgs): Observable<Response>;
-  get(postType: string, options?: RequestOptionsArgs): Observable<Response>;
+  getList(options?: Object): Observable<Object>;
+  get(postType: string, options?: Object): Observable<Object>;
 }
 
 export interface IWpApiMedia {
-  getList(options?: RequestOptionsArgs): Observable<Response>;
-  get(mediaId: number, options?: RequestOptionsArgs): Observable<Response>;
-  create(body: any, options?: RequestOptionsArgs): Observable<Response>;
-  update(mediaId: number, body: any, options?: RequestOptionsArgs): Observable<Response>;
-  delete(mediaId: number, options?: RequestOptionsArgs): Observable<Response>;
+  getList(options?: Object): Observable<Object>;
+  get(mediaId: number, options?: Object): Observable<Object>;
+  create(body: any, options?: Object): Observable<Object>;
+  update(mediaId: number, body: any, options?: Object): Observable<Object>;
+  delete(mediaId: number, options?: Object): Observable<Object>;
 }
 
 export interface IWpApiUsers {
-  getList(options?: RequestOptionsArgs): Observable<Response>;
-  me(options?: RequestOptionsArgs): Observable<Response>;
-  get(userId: number, options?: RequestOptionsArgs): Observable<Response>;
-  create(body: any, options?: RequestOptionsArgs): Observable<Response>;
-  update(userId: number, body: any, options?: RequestOptionsArgs): Observable<Response>;
-  delete(userId: number, options?: RequestOptionsArgs): Observable<Response>;
+  getList(options?: Object): Observable<Object>;
+  me(options?: Object): Observable<Object>;
+  get(userId: number, options?: Object): Observable<Object>;
+  create(body: any, options?: Object): Observable<Object>;
+  update(userId: number, body: any, options?: Object): Observable<Object>;
+  delete(userId: number, options?: Object): Observable<Object>;
 }
 
 export interface IWpApiTaxonomies {
-  getList(options?: RequestOptionsArgs): Observable<Response>;
-  get(taxonomiesType: string, options?: RequestOptionsArgs): Observable<Response>;
+  getList(options?: Object): Observable<Object>;
+  get(taxonomiesType: string, options?: Object): Observable<Object>;
 }
 
 export interface IWpApiStatuses {
-  getList(options?: RequestOptionsArgs): Observable<Response>;
-  get(statusesName: string, options?: RequestOptionsArgs): Observable<Response>;
+  getList(options?: Object): Observable<Object>;
+  get(statusesName: string, options?: Object): Observable<Object>;
 }
 
 export interface IWpApiTerms {
-  getList(taxonomiesType: string, options?: RequestOptionsArgs): Observable<Response>;
-  get(taxonomiesType: string, termId: number, options?: RequestOptionsArgs): Observable<Response>;
-  create(taxonomiesType: string, body: any, options?: RequestOptionsArgs): Observable<Response>;
-  update(taxonomiesType: string, termId: number, body: any, options?: RequestOptionsArgs): Observable<Response>;
-  delete(taxonomiesType: string, termId: number, options?: RequestOptionsArgs): Observable<Response>;
+  getList(taxonomiesType: string, options?: Object): Observable<Object>;
+  get(taxonomiesType: string, termId: number, options?: Object): Observable<Object>;
+  create(taxonomiesType: string, body: any, options?: Object): Observable<Object>;
+  update(taxonomiesType: string, termId: number, body: any, options?: Object): Observable<Object>;
+  delete(taxonomiesType: string, termId: number, options?: Object): Observable<Object>;
 }
 
 export interface IWpApiCustom {
-  getList(options?: RequestOptionsArgs): Observable<Response>;
-  get(customId: number, options?: RequestOptionsArgs): Observable<Response>;
-  create(body: any, options?: RequestOptionsArgs): Observable<Response>;
-  update(customId: number, body: any, options?: RequestOptionsArgs): Observable<Response>;
-  delete(customId: number, options?: RequestOptionsArgs): Observable<Response>;
+  getList(options?: Object): Observable<Object>;
+  get(customId: number, options?: Object): Observable<Object>;
+  create(body: any, options?: Object): Observable<Object>;
+  update(customId: number, body: any, options?: Object): Observable<Object>;
+  delete(customId: number, options?: Object): Observable<Object>;
 }

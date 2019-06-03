@@ -1,22 +1,20 @@
 import { Injectable, Inject } from '@angular/core';
-import { Http } from '@angular/http';
 
 // Need to import interfaces dependencies
 // Bug TypeScript https://github.com/Microsoft/TypeScript/issues/5938
-import { Observable } from 'rxjs/Observable';
-import { RequestOptionsArgs } from '@angular/http/src/interfaces';
-import { Response } from '@angular/http/src/static_response';
+import { Observable } from 'rxjs';
 
 import { WpApiParent } from './Parent';
 
 import { WpApiLoader } from './Loaders';
+import{HttpClient, HttpResponse} from "@angular/common/http";
 
 export interface IWpApiTerms {
-  getList(taxonomiesType: string, options?: RequestOptionsArgs): Observable<Response>;
-  get(taxonomiesType: string, termId: number, options?: RequestOptionsArgs): Observable<Response>;
-  create(taxonomiesType: string, body: any, options?: RequestOptionsArgs): Observable<Response>;
-  update(taxonomiesType: string, termId: number, body: any, options?: RequestOptionsArgs): Observable<Response>;
-  delete(taxonomiesType: string, termId: number, options?: RequestOptionsArgs): Observable<Response>;
+  getList(taxonomiesType: string, options?: Object): Observable<Object>;
+  get(taxonomiesType: string, termId: number, options?: Object): Observable<Object>;
+  create(taxonomiesType: string, body: any, options?: Object): Observable<Object>;
+  update(taxonomiesType: string, termId: number, body: any, options?: Object): Observable<Object>;
+  delete(taxonomiesType: string, termId: number, options?: Object): Observable<Object>;
 }
 
 const defaultTaxoType = 'categories';
@@ -25,7 +23,7 @@ const defaultTaxoType = 'categories';
 export class WpApiTerms extends WpApiParent implements IWpApiTerms {
   constructor(
     public wpApiLoader: WpApiLoader,
-    public http: Http
+    public http: HttpClient
   ) {
     super(wpApiLoader, http);
   }

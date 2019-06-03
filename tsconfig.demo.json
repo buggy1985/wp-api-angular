@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es2015",
     "module": "commonjs",
     "moduleResolution": "node",
     "sourceMap": true,
@@ -12,8 +12,8 @@
   "files": [
     "demo/index.ts",
     "typings/overwrite.d.ts",
-    "typings/index.d.ts",
-    "node_modules/rxjs/add/operator/toPromise.d.ts"
+    /*"typings/index.d.ts",*/
+    /*"node_modules/rxjs/add/operator/toPromise.d.ts"*/
   ],
   "compileOnSave": false,
   "atom": {

@@ -1,19 +1,14 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import 'rxjs/add/operator/toPromise';
-import { Http } from '@angular/http';
-import {
-  WpApiModule,
-  WpApiLoader,
-  WpApiStaticLoader
-} from '../dist/wp-api-angular'
+import { WpApiModule,  WpApiLoader,  WpApiStaticLoader } from '../dist/wp-api-angular'
 import { App } from './app';
+import{HttpClient, HttpResponse} from "@angular/common/http";
 
-let config = require('../config.json');
+import { config } from "../config";
 
 console.info('config', config);
 
-export function WpApiLoaderFactory(http: Http) {
+export function WpApiLoaderFactory(http: HttpClient) {
   return new WpApiStaticLoader(http, config.baseUrl);
 }
 
@@ -23,7 +18,7 @@ export function WpApiLoaderFactory(http: Http) {
     WpApiModule.forRoot({
       provide: WpApiLoader,
       useFactory: (WpApiLoaderFactory),
-      deps: [Http]
+      deps: [HttpClient]
     })
   ],
   declarations: [App],
